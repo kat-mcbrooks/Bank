@@ -1,7 +1,7 @@
 ## Bank Tech Test
 
 ### User stories / requirements
-I created a takeaway program to meet these user story requirements: 
+
 * client can make a deposit of a numeric value (nb. from the specification, this will be a round number i.e. not a decimal)
 * client can make a withdrawal of a numeric value (nb. from the specification, this will be a round number i.e. not a decimal)
 * client can view/print account statement 
