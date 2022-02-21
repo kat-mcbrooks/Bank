@@ -1,0 +1,15 @@
+const Bank = require('./bank');
+
+describe('Bank', () => {
+  it('begins with balance of zero', () => {
+      bank = new Bank;
+      expect(bank.balance).toBe(0); 
+    });
+
+  it('client can deposit money on a given date', () => {
+    bank = new Bank;
+    expect(bank.deposit(1000, "10/01/2023")).toEqual("10/01/2023 || 1000.00 || || 1000.00")
+  });
+
+  
+});
