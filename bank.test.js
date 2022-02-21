@@ -15,15 +15,6 @@ describe('Bank', () => {
     expect(bank.transactions).toEqual([]); 
   });
 
-  it('client can deposit money on a given date', () => {
-    expect(bank.deposit(1000, "10-01-2023")).toEqual("10/01/2023 || 1000.00 || || 1000.00")
-  });
-
-  it('client can withdraw money on a given date', () => {
-    bank.deposit(1000, "10-01-2023");
-    expect(bank.withdraw(500, "14-01-2023")).toEqual("14/01/2023 || || 500.00 || 500.00")
-  });
-
   it('displays/prints statement displaying transaction history, in the required format', () => {
     bank.deposit(1000, "10-01-2023");
     bank.deposit(2000, "13-01-2023");
