@@ -6,6 +6,10 @@ describe('Bank', () => {
       expect(bank.balance).toBe(0); 
     });
 
+  it('begins with empty transaction list', () => {
+    bank = new Bank;
+    expect(bank.transactions).toEqual([]); 
+  });
   it('client can deposit money on a given date', () => {
     bank = new Bank;
     expect(bank.deposit(1000, "10/01/2023")).toEqual("10/01/2023 || 1000.00 || || 1000.00")
