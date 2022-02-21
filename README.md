@@ -20,7 +20,7 @@ date || credit || debit || balance
 2. Load the file
 ``` > .load bank.js ```
 3. Instantiate a Bank and make deposits, withdrawals, and request a printed to screen statement as per the example below.
-  * You must pass two parameters to the deposit and withdraw methods. The first parameter should be an integer and the second parameter should be a date string, formatted as "DD/MM/YYYY"
+  * You must pass two parameters to the deposit and withdraw methods. The first parameter should be an integer and the second parameter should be a date string, formatted as "DD-MM-YYYY", as per the acceptance criteria.
   * In order to print the statement to screen in the specified format, use console.log (as in the example below)
 ``` 
 > bank = new Bank;
@@ -39,7 +39,8 @@ Run jest to run all tests or a particular test:
 ``` 
 jest
 ```
-
-### Assumptions that would need to be checked with client
-* withouth know what format the date would be provided in, I have assumed that date would be provided in string format "14/01/2023"
+Test coverage is 100%. To check coverage, run: 
+``` 
+jest --coverage
+```
 
