@@ -7,5 +7,10 @@ class Bank {
     this.balance += amount;
     return `${date} || ${amount.toFixed(2)} || || ${this.balance.toFixed(2)}`;
   }
+
+  withdraw(amount, date) {
+    this.balance -= amount;
+    return `${date} || || ${amount.toFixed(2)} || ${this.balance.toFixed(2)}`;
+  }
 }
 module.exports = Bank; 
