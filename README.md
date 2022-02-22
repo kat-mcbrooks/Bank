@@ -90,7 +90,6 @@ jest --coverage
 npx eslint bank.js
 
 ```
-<img src="images/Diagram-for-Bank-UML-attempt.jpeg" alt="Attempt at a UML diagram" width="200"/>
 
-
-![Attempt at a UML diagram](images/Diagram-for-Bank-UML-attempt.jpeg)
+####Attempt at a UML diagram
+<img src="images/Diagram-for-Bank-UML-attempt.jpeg" alt="Attempt at a UML diagram" width="400"/>
