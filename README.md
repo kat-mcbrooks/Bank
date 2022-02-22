@@ -91,5 +91,6 @@ npx eslint bank.js
 
 ```
 
-####Attempt at a UML diagram
+#### Attempt at a UML diagram
+<br>
 <img src="images/Diagram-for-Bank-UML-attempt.jpeg" alt="Attempt at a UML diagram" width="400"/>
