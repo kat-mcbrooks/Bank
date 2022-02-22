@@ -1,4 +1,4 @@
-const TransactionLog = require('./transaction_log');
+const TransactionLog = require('../lib/transaction_log');
 
 describe('TransactionLog', () => {
 

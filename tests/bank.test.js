@@ -1,4 +1,4 @@
-const Bank = require('./bank');
+const Bank = require('../lib/bank');
 
 describe('Bank', () => {
   const amountError = 'That is not a valid amount. Please enter a positive integer.'
