@@ -65,7 +65,17 @@ Install all dependencies within the project directory, per the dependencies in t
 ```
 npm install;
 ```
-**To run all tests or a particular test:** 
+
+**To run the feature test:**
+1. Open node, or your chosen REPL
+2. Load the file and run the following command
+``` > .load bank.js ```
+3. Run the commands as per the feature_test.js file to check the return values and outputs.
+
+**To run all unit tests or a particular test:** 
+1. Open node, or your chosen REPL
+2. Load the file and run the following command
+``` > .load bank.js ```
 ``` 
 jest
 jest bank.test.js
