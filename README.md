@@ -90,3 +90,5 @@ jest --coverage
 npx eslint bank.js
 
 ```
+
+![Attempt at a UML diagram](images/Diagram-for-Bank-UML-attempt.jpeg)
