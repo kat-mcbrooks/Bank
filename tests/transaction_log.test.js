@@ -1,4 +1,4 @@
-const TransactionLog = require("../lib/transaction_log");
+const TransactionLog = require("../src/transaction_log");
 
 describe("TransactionLog", () => {
   beforeEach(() => {
@@ -16,8 +16,8 @@ describe("TransactionLog", () => {
   // });
   it('sorts its log of transactions by date', () => {
     console.log(transactionLog.log);
-    console.log(transactionLog.sortByDate());
-    expect(transactionLog.sortByDate()).toEqual([
+    console.log(transactionLog._sortByDate());
+    expect(transactionLog._sortByDate()).toEqual([
       {
         date: date3,
         credit: 0,

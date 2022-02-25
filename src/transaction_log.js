@@ -13,11 +13,11 @@ class TransactionLog {
   }
 
   formatLog() {
-    const sortedLog = this.sortByDate();
+    const sortedLog = this._sortByDate();
     const formatted = [];
     sortedLog.forEach((transaction) => {
       formatted.push(
-        `${transaction.date.toLocaleString().slice(0, 10)} ||${this._formatNum(
+        `${this._formatDate(transaction.date)} ||${this._formatNum(
           transaction.credit
         )} ||${this._formatNum(
           transaction.debit
@@ -36,6 +36,10 @@ class TransactionLog {
 
   _formatNum(num) {
     return num == 0 ? "" : ` ${num.toFixed(2)}`;
+  }
+
+  _formatDate(date) {
+    return date.toLocaleString().slice(0, 10);
   }
 }
 

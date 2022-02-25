@@ -1,4 +1,4 @@
-const TransactionLog = require("../lib/transaction_log");
+const TransactionLog = require("./transaction_log");
 
 class Bank {
   constructor(log = TransactionLog) {
@@ -6,38 +6,33 @@ class Bank {
     this.transactionLog = new log();
   }
 
-  deposit(num, today = new Date) {
-    const amount = this._isValid(num);
-    const date = this._format(today);
+  deposit(num, date = new Date) {
+    const amount = this._validate(num);
     this.balance += amount;
-
-    this.transactionLog.addTransaction(date, amount.toFixed(2), "" this.balance);
+    this.transactionLog.addTransaction(date, amount, 0, this.balance);
     return `You have made a deposit of £${amount.toFixed(2)}. Your balance is now ${this.balance.toFixed(2)}`;
   }
 
-  withdraw(num, today = new Date()) {
-    const amount = this._isValid(num);
+  withdraw(num, date = new Date()) {
+    const amount = this._validate(num);
     this._checkFunds(amount);
-    const date = this._format(today);
     this.balance -= amount;
-    this.transactionLog.addTransaction(date, "", amount.toFixed(2), this.balance);
+    this.transactionLog.addTransaction(date, 0, amount, this.balance);
     return `You have made a withdrawal of £${amount.toFixed(2)}. Your balance is now ${this.balance.toFixed(2)}`;
   }
 
   statement() {
-    console.log(this.transactionLog.formatTransactions());
+    console.log(this.transactionLog.formatLog());
   }
 
-  _isValid(amount) {
+  _validate(amount) {
     if (!Number.isInteger(amount) || amount < 0) {
       throw "That is not a valid amount. Please enter a positive integer.";
     }
     return amount;
   }
 
-  _format(date) {
-    return date.toLocaleString().slice(0, 10);
-  }
+
 
   _checkFunds(amount) {
     if (this.balance < amount) {

@@ -1,27 +1,30 @@
-const Bank = require("../lib/bank");
+const Bank = require("../src/bank");
 
 describe("Bank", () => {
   const amountError =
     "That is not a valid amount. Please enter a positive integer.";
 
-  const mockAddCredit = jest.fn();
-  const mockAddDebit = jest.fn();
-  const mockformatTransactions = jest.fn();
+  const mockAddTransaction = jest.fn(); 
+  const mockformatLog = jest.fn();
+
   const TransactionLogMock = jest.fn(() => {
     return {
-      addDebit: mockAddDebit,
-      addCredit: mockAddCredit,
-      formatTransactions: mockformatTransactions,
+      addTransaction: mockAddTransaction,
+      formatLog: mockformatLog,
     };
   });
-  const date = new Date();
+  // const DateMock = jest.fn((); => {
+  //   return {
+  //     now: "" 
+  // }
+  
+  const date = new Date(2023, 0, 10, 0, 0, 0, 0);
   let bank = new Bank(TransactionLogMock);
 
   beforeEach(() => {
     TransactionLogMock.mockClear();
-    mockAddCredit.mockClear();
-    mockAddDebit.mockClear();
-    mockformatTransactions.mockClear();
+    mockAddTransaction.mockClear();
+    mockformatLog.mockClear();
     bank = new Bank(TransactionLogMock);
   });
 
@@ -38,9 +41,10 @@ describe("Bank", () => {
   describe("deposit", () => {
     it("should add a credit transaction to the log, with date", () => {
       bank.deposit(1000, date);
-      expect(mockAddCredit).toHaveBeenCalledWith(
-        bank._format(date),
+      expect(mockAddTransaction).toHaveBeenCalledWith(
+        date,
         1000,
+        0,
         1000
       );
     });
@@ -56,8 +60,8 @@ describe("Bank", () => {
     it("should add a debit transaction to the log, with date", () => {
       bank.deposit(1000, date);
       bank.withdraw(500, date);
-      expect(mockAddDebit.mock.calls.length).toBe(1);
-      expect(mockAddDebit).toHaveBeenCalledWith(bank._format(date), 500, 500);
+      expect(mockAddTransaction.mock.calls.length).toBe(2);
+      expect(mockAddTransaction).toHaveBeenCalledWith(date, 0, 500, 500);
     });
 
     it("throws error if client attempts to withdraw more than their balance", () => {
@@ -80,7 +84,22 @@ describe("Bank", () => {
       bank.deposit(2000, new Date(2023, 0, 12, 0, 0, 0, 0));
       bank.withdraw(500, new Date(2023, 0, 14, 0, 0, 0, 0));
       bank.statement();
-      expect(mockformatTransactions.mock.calls.length).toBe(1);
+
+      expect(mockformatLog.mock.calls.length).toBe(1);
+    });
+
+    it("console.logs the statement returned by TransactionLog's formatLog method, in the required format", () => {
+      mockformatLog.mockReturnValueOnce('date || credit || debit || balance\n14/01/2023 || || 500.00 || 2500.00\n12/01/2023 || 2000.00 || || 3000.00\n10/01/2023 || 1000.00 || || 1000.00'
+      );
+      console.log = jest.fn()
+   
+      bank.deposit(1000, new Date(2023, 0, 10, 0, 0, 0, 0));
+      bank.deposit(2000, new Date(2023, 0, 12, 0, 0, 0, 0));
+      bank.withdraw(500, new Date(2023, 0, 14, 0, 0, 0, 0));
+
+      bank.statement();
+      expect(global.console.log).toBeCalledTimes(1)
+      expect(global.console.log).toHaveBeenLastCalledWith('date || credit || debit || balance\n14/01/2023 || || 500.00 || 2500.00\n12/01/2023 || 2000.00 || || 3000.00\n10/01/2023 || 1000.00 || || 1000.00')
     });
   });
 });
