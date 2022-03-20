@@ -16,7 +16,7 @@ date || credit || debit || balance
 ```
 ### My approach to structuring the code: 
 * Bank class is responsible for the user interface i.e. handles deposit, withdraw and prints statement
-* TransactionLog class is responsible for recording individual transactions and producing the transaction log 
+* TransactionLog class is responsible for recording the raw data of individual transactions and producing the transaction log 
 
 ### How to run the Bank code via node
 1. Install dependencies by running npm install
