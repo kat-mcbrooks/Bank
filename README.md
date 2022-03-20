@@ -21,7 +21,8 @@ date || credit || debit || balance
 ### How to run the Bank code via node
 1. Install dependencies by running npm install
 2. Open node, or your chosen REPL
-3. Load the file
+3. change directory into src
+4. Load the file
 ``` > .load bank.js ```
 4. Instantiate a Bank and make deposits, withdrawals, and request a printed to screen statement as per the example below.
   * You can only deposit and withdraw positive whole numbers, otherwise the client will receive an error message.
@@ -73,9 +74,7 @@ npm install;
 3. Run the commands as per the feature_test.js file to check the return values and outputs.
 
 **To run all unit tests or a particular test:** 
-1. Open node, or your chosen REPL
-2. Load the file and run the following command
-``` > .load bank.js ```
+
 ``` 
 jest
 jest bank.test.js
@@ -91,4 +90,6 @@ npx eslint bank.js
 
 ```
 
-![Attempt at a UML diagram](images/Diagram-for-Bank-UML-attempt.jpeg)
+#### Attempt at a UML diagram
+<br>
+<img src="images/Diagram-for-Bank-UML-attempt.jpeg" alt="Attempt at a UML diagram" width="400"/>
