@@ -1,10 +1,10 @@
 ## Bank Tech Test
-
+**JavaScript | Jest**
 ### User stories / requirements
 
-* client can make a deposit of a numeric value (nb. from the specification, this will be an integer)
-* client can make a withdrawal of a numeric value (nb. from the specification, this will be an integer)
-* client can view/print account statement 
+* Client can make a deposit of a numeric value (nb. from the specification, this will be an integer)
+* Client can make a withdrawal of a numeric value (nb. from the specification, this will be an integer)
+* Client can view/print account statement 
   * account statement displays date the transaction was made, a value in the credit (if deposit) or debit (if withdrawal) column, and the balance after the transaction
   * numbers on statement display with 2 decimal points 
   * account statement displays in the specified format as below:
